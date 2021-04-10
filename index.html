@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" manifest="create-pwa.appcache">
+	<head>
+		<title>Not Hotdog</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Have you wondered if a picture contains a hot dog? Wonder no longer.">
+		<meta name="author" content="Eli Blaney">
+		<meta name="keywords" content="not hotdog, hotdog, hot dog, not hot dog, silicon valley, jian yang">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="manifest" href="manifest.json">
+		<link rel="icon" href="favicons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+		<meta name="theme-color" content="#222">
+		<link rel="apple-touch-icon" href="icons/icon-512x512.png">
+		<meta name="apple-mobile-web-app-capapble" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="dark">
+		<meta name="apple-mobile-web-app-title" content="Not Hotdog">
+		<meta name="msapplication-TileColor" content="#222">
+		<meta name="msapplication-TileImage" content="icons/icon-512x512.png">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+	</head>
+	<body id="root" class="fullscreen">
+		<img class="animate__animated animate__fadeInUp" id="logo" src="images/hotdog.png">
+		<h1 class="animate__animated animate__fadeInUp">Not Hot Dog?</h1>
+
+		<div id="dropzone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+			<p>Upload image...</p>
+		</div>
+
+		<script>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('./service-worker.js').then(
+						registration => {
+							console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
+						},
+						error => {
+							console.log(`ServiceWorker registration failed: ${error}`);
+						}
+					);
+				});
+			}
+		</script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
