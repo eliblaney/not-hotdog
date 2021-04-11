@@ -1,2 +1,5 @@
 node_modules/
-
+*.pkl
+*.pyo
+*.pyc
+static/uploads/*

@@ -1,0 +1,79 @@
+#logo {
+	max-width: 150px;
+	margin: 10px auto 20px;
+}
+
+body, #app {
+	background: #222;
+	width: 100vw;
+	max-width: 100vw;
+	height: 100vh;
+	max-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1,h2,h3,h4,h5,h6,p,a,a:visited,a:hover {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #fff;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+.lead {
+	font-size: 0.9rem;
+	color: #aaa;
+	margin-top: -20px;
+}
+
+.lead a {
+	color: #aaa !important;
+}
+
+#dropzone {
+	margin-top: 50px;
+	border: 5px solid #222277;
+	border-radius: 50px;
+	width:  80%;
+	max-width: 500px;
+	height: 300px;
+	text-align: center;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#dropzone p {
+	color: #666;
+}
+
+.user-image {
+	max-height: 60vh;
+}
+
+.ishotdog {
+	color: #55cc55;
+}
+
+.nothotdog {
+	color: #cc5555;
+}
+
+.goBackButton {
+	padding: 10px;
+	background-color: #224499;
+	color: #fff;
+	border-radius: 25px;
+	min-width: 75px;
+	text-align: center;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #fff;
+}

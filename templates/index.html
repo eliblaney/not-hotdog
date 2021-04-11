@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" manifest="{{ url_for('static', filename='create-pwa.appcache') }}">
+	<head>
+		<title>Not Hotdog</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Have you wondered if a picture contains a hot dog? Wonder no longer.">
+		<meta name="author" content="Eli Blaney">
+		<meta name="keywords" content="not hotdog, hotdog, hot dog, not hot dog, silicon valley, jian yang">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+		<link rel="icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}" type="image/x-icon">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+		<meta name="theme-color" content="#222">
+		<link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon-512x512.png') }}">
+		<meta name="apple-mobile-web-app-capapble" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="dark">
+		<meta name="apple-mobile-web-app-title" content="Not Hotdog">
+		<meta name="msapplication-TileColor" content="#222">
+		<meta name="msapplication-TileImage" content="{{ url_for('static', filename='icons/icon-512x512.png') }}">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+	</head>
+	<body id="root" class="fullscreen">
+		<div id="app">
+			<img class="animate__animated animate__fadeInUp" id="logo" src="{{ url_for('static', filename='images/hotdog.png') }}">
+			<h1 class="animate__animated animate__fadeInUp">Not Hot Dog?</h1>
+			<p class="lead animate__animated animate__fadeInUp">Based on <a href="https://www.youtube.com/watch?v=ACmydtFDTGs" target="_blank">this video</a></p>
+
+			<input type="file" id="uploadfile" style="display: none" onchange="fileHandler(this);" /> 
+			<label id="dropzone" for="uploadfile" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"><div class="animate__animated animate__fadeIn">
+				<p>Upload image...</p>
+			</div></label>
+		</div>
+
+		<script>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register("{{ url_for('static', filename='js/service-worker.js') }}").then(
+						registration => {
+							console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
+						},
+						error => {
+							console.log(`ServiceWorker registration failed: ${error}`);
+						}
+					);
+				});
+			}
+		</script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+	</body>
+</html>
