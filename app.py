@@ -1,6 +1,5 @@
 import os
-from flask import Flask, flash, request, redirect, Markup, render_template#, session
-# from flask_session import Session
+from flask import Flask, flash, request, redirect, Markup, render_template
 from flask_cors import CORS
 from skimage.feature import hog
 from skimage.io import imread
@@ -17,14 +16,10 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 CORS(app)
-# sess = Session()
-app.config['UPLOAD_FOLDER'] = "/var/www/html/api/static/uploads"
+app.config['UPLOAD_FOLDER'] = "static/uploads"
 app.secret_key = str(uuid.uuid4())
-# app.config['SESSION_TYPE'] = 'filesystem'
-# app.config['SESSION_FILE_DIR'] = '/var/www/html/api/flask_session'
-# sess.init_app(app)
 
-with open('/var/www/html/api/model.pkl', 'rb') as file:
+with open('model.pkl', 'rb') as file:
     MODEL = pickle.load(file)
 
 class RGB2GrayTransformer(BaseEstimator, TransformerMixin):
@@ -136,4 +131,4 @@ def index():
 
 if __name__ == "__main__":
 	port = int(os.environ.get("PORT", 80))
-	# app.run(host='0.0.0.0', port=port)
+	app.run(host='0.0.0.0', port=port)

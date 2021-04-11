@@ -43,6 +43,7 @@ function predict(file) {
 
 	var formData = new FormData();
 	formData.append("file", file);
+	formData.append('API_KEY', 'fce56ab4-666e-4cdf-9bd0-e12e1b580c11');
 
 	xhr.addEventListener('progress', function(e) {
 		var done = e.position || e.loaded

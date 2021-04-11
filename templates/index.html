@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="{{ url_for('static', filename='create-pwa.appcache') }}">
+<html lang="en">
 	<head>
 		<title>Not Hotdog</title>
 		<meta charset="utf-8">
@@ -25,9 +25,9 @@
 	</head>
 	<body id="root" class="fullscreen">
 		<div id="app">
-			<img class="animate__animated animate__fadeInUp" id="logo" src="{{ url_for('static', filename='images/hotdog.png') }}">
+			<img class="animate__animated animate__fadeInUp" id="logo" src="{{ url_for('static', filename='images/hotdog.png') }}" alt="Image of a hot dog">
 			<h1 class="animate__animated animate__fadeInUp">Not Hot Dog?</h1>
-			<p class="lead animate__animated animate__fadeInUp">Based on <a href="https://www.youtube.com/watch?v=ACmydtFDTGs" target="_blank">this video</a></p>
+			<p class="lead animate__animated animate__fadeInUp">Based on <a href="https://www.youtube.com/watch?v=ACmydtFDTGs" target="_blank" rel="noreferrer">this video</a></p>
 
 			<input type="file" id="uploadfile" style="display: none" onchange="fileHandler(this);" /> 
 			<label id="dropzone" for="uploadfile" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"><div class="animate__animated animate__fadeIn">

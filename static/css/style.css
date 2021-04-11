@@ -6,13 +6,17 @@
 body, #app {
 	background: #222;
 	width: 100vw;
-	max-width: 100vw;
 	height: 100vh;
-	max-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+html {
+	overflow-x: hidden;
+	max-width: 100vw;
+	max-height: 100vh;
 }
 
 h1,h2,h3,h4,h5,h6,p,a,a:visited,a:hover {
@@ -54,6 +58,7 @@ h1 {
 
 .user-image {
 	max-height: 60vh;
+	max-width: 90vw;
 }
 
 .ishotdog {
