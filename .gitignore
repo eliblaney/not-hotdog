@@ -1,5 +1,6 @@
 node_modules/
 *.pkl
+__pycache__/
 *.pyo
 *.pyc
 static/uploads/*
