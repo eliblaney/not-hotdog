@@ -5,7 +5,7 @@ from skimage.feature import hog
 from skimage.transform import resize, rescale
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import StandardScaler, Normalizer
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import NuSVC
 from sklearn.model_selection import cross_val_predict
 from collections import Counter
 import skimage
@@ -134,7 +134,7 @@ X_train_gray = grayify.fit_transform(X_train)
 X_train_hog = hogify.fit_transform(X_train_gray)
 X_train_prepared = scalify.fit_transform(X_train_hog)
 
-model = DecisionTreeClassifier()
+model = NuSVC()
 model.fit(X_train_prepared, y_train)
 
 
